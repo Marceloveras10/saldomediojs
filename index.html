@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculadora de Crédito</title>
+</head>
+<body>
+	<h1>Calculadora de Crédito</h1>
+	<form id="form" onsubmit="calcularCredito(); return false;">
+		<label for="saldo-medio">Saldo médio:</label>
+		<input type="number" id="saldo-medio" name="saldo-medio" required>
+		<button type="submit">Calcular</button>
+	</form>
+	<p id="resultado"></p>
+    <script>
+        function calcularCredito() {
+            // Ler o saldo médio do formulário
+            var saldoMedio = parseFloat(document.getElementById('saldo-medio').value);
+        
+            // Calcular o valor do crédito com base no saldo médio
+            var valorCredito;
+            if (saldoMedio <= 500) {
+                valorCredito = 0;
+            } else if (saldoMedio <= 1000) {
+                valorCredito = saldoMedio * 0.3;
+            } else if (saldoMedio <= 3000) {
+                valorCredito = saldoMedio * 0.4;
+            } else {
+                valorCredito = saldoMedio * 0.5;
+            }
+        
+            // Exibir o resultado na tela
+            var resultado = document.getElementById('resultado');
+            resultado.innerHTML = 'Saldo médio: R$ ' + saldoMedio.toFixed(2) + '<br>';
+            resultado.innerHTML += 'Valor do crédito: R$ ' + valorCredito.toFixed(2);
+        }
+        </script>
+        
+</body>
+</html>
+
+
+
+  
